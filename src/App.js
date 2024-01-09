@@ -1,14 +1,15 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Projects from "./components/Projects";
-import ContactForm from "./components/ContactForm";
-import UnderConst from "./components/UnderConst";
-import FormDt from "./components/FormDt";
-import Products from "./components/Products";
-import Header from "./components/Header";
+import About from "./components/pages/About";
+import Contact from "./components/pages/Contact";
+import Projects from "./components/pages/Projects";
+import ContactForm from "./components/pages/ContactForm";
+import UnderConst from "./components/pages/UnderConst";
+import FormDt from "./components/pages/FormDt";
+import Products from "./components/pages/Products";
+import Header from "./components/base/Header";
+import ProductsCard from "./components/pages/ProductsCard";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/signup" element={<ContactForm />} />
             <Route path="/form" element={<FormDt />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/cards" element={<ProductsCard />} />
             <Route path="*" element={<UnderConst />} />
           </Routes>
         </div>

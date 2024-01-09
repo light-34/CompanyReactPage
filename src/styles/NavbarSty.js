@@ -10,7 +10,7 @@ import {
   useTheme,
   useMediaQuery,
 } from "@material-ui/core";
-import DrawerComp from "../components/DrawerComp";
+import DrawerComp from "../components/pages/DrawerComp";
 
 const useStyles = makeStyles((theme) => ({
   navlinks: {

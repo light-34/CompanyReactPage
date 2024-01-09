@@ -30,22 +30,22 @@ const DrawerComp = () => {
         <List>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link to="/">Home</Link>
+              <Link to="/" className={classes.link}>Home</Link>
             </ListItemText>
           </ListItem>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link to="/about">About</Link>
+              <Link to="/about" className={classes.link}>About</Link>
             </ListItemText>
           </ListItem>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link to="/contact">Contact</Link>
+              <Link to="/contact" className={classes.link}>Contact</Link>
             </ListItemText>
           </ListItem>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link to="/projects">Projects</Link>
+              <Link to="/projects" className={classes.link}>Projects</Link>
             </ListItemText>
           </ListItem>
         </List>

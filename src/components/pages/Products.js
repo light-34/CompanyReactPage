@@ -9,63 +9,98 @@ import {
   ListSubheader,
 } from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
-import { useEffect, useState } from "react";
+import { makeStyles } from "@material-ui/core";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+
+const useStyles = makeStyles({
+  imgPic: {
+    backgroundColor: "#b6f2d6",
+    width: "80%",
+    marginRight: "auto",
+    marginLeft: "auto",
+  },
+  div: {
+    display: "flex",
+    flexDirection: "column",
+    width:"80%",
+    marginRight: "auto",
+    marginLeft: "auto",
+    backgroundColor: "#e8f3ff",
+    padding: "2%"
+
+  },
+  imgList: {
+    display:"flex",
+    justifyContent: "center"
+  },
+  imgListItem: {
+    display: "flex",
+    flexDirection: "column"
+  }
+
+});
+
+const items = [
+  {
+    img: "/images/products/acura.png",
+    title: "Acura",
+    price: "$25 000",
+    seller: "Cezmi",
+    rows: 2,
+    cols: 2,
+    featured: true,
+  },
+  {
+    img: "/images/products/maseratti.png",
+    title: "Maseratti",
+    price: "$65 000",
+    seller: "Cezmi",
+    rows: 2,
+    cols: 2,
+    featured: true
+  },
+  
+  {
+    img: "/images/products/redone.png",
+    title: "Red Beauty",
+    price: "$125 000",
+    seller: "Cezmi",
+    rows: 2,
+    cols: 2,
+    featured: true,
+  },
+  {
+    img: "/images/products/mercedes.png",
+    title: "Mercedes",
+    price: "$110 000",
+    seller: "Cezmi",
+    rows: 2,
+    cols: 2,
+    featured: true,
+  },
+  {
+    img: "/images/products/noname.png",
+    title: "Black Beauty",
+    price: "$225 000",
+    seller: "Cezmi",
+    rows: 2,
+    cols: 2,
+    featured: true,
+  },
+];
 
 const Products = () => {
-  const items = [
-    {
-      img: "/images/products/acura.png",
-      title: "Acura",
-      price: "$25 000",
-      seller: "Cezmi",
-      rows: 2,
-      cols: 2,
-      featured: true,
-    },
-    {
-      img: "/images/products/maseratti.png",
-      title: "Maseratti",
-      price: "$65 000",
-      seller: "Cezmi",
-      // rows: 2,
-      // cols: 2,
-      // featured: true
-    },
-    {
-      img: "/images/products/mercedes.png",
-      title: "Mercedes",
-      price: "$110 000",
-      seller: "Cezmi",
-      rows: 2,
-      cols: 2,
-      featured: true,
-    },
-    {
-      img: "/images/products/redone.png",
-      title: "Red Beauty",
-      price: "$125 000",
-      seller: "Cezmi",
-      rows: 2,
-      cols: 2,
-      featured: true,
-    },
-    {
-      img: "/images/products/noname.png",
-      title: "Black Beauty",
-      price: "$225 000",
-      seller: "Cezmi",
-      rows: 2,
-      cols: 2,
-      featured: true,
-    },
-  ];
+
   const [butVal, setButVal] = useState("List Item");
   const [image, setImage] = useState("");
   const [loadVal, setLoadVal] = useState(true);
 
+  const classes = useStyles();
+
   const imageViewFun = () => {
     setImage(
-      <ImageList sx={{ width: 500, height: 500 }}>
+      <ImageList className={classes.imgPic}>
         <ImageListItem key="subheader" cols={2}>
           <ListSubheader component="div" >Cars</ListSubheader>
         </ImageListItem>
@@ -99,12 +134,13 @@ const Products = () => {
 
   const listViewFun = () => {
     setImage(
-        <List>
+        <List className={classes.imgList}>
             {
                 items.map((item) => (
-                <ListItem>
+                <ListItem className={classes.imgListItem}>
                     <h4>{item.title}</h4>
                     <img src={item.img} height="60px" alt={item.title} />
+                    <p>Contact : <Link to="#" sx={{textDecoration: "none", color: "red"}}>{item.seller}</Link></p>
                 </ListItem>
                 ))
             }
@@ -124,7 +160,7 @@ const Products = () => {
   }
 
   return (
-    <div>
+    <div className={classes.div}>
       <Button onClick={changer}>{butVal}</Button> <br />
       {image}
     </div>
